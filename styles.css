@@ -1,0 +1,819 @@
+/* ========================================
+   GPA + CGPA Calculator - Complete Stylesheet
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --primary-blue: #1e40af;
+    --light-blue: #dbeafe;
+    --gold: #f59e0b;
+    --success-green: #10b981;
+    --warning-yellow: #fbbf24;
+    --danger-red: #ef4444;
+    --dark-gray: #1f2937;
+    --light-gray: #f3f4f6;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Light Mode */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --border-color: #e5e7eb;
+    --card-bg: #ffffff;
+}
+
+html.dark-mode {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #0f1419;
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --border-color: #404060;
+    --card-bg: #16213e;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    min-height: 100vh;
+    position: relative;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.header {
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-background {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.back-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    padding: 0.5rem 0;
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+
+.credit-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-links a {
+    color: var(--primary-blue);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-links a:hover {
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+    background: var(--light-blue);
+    border-color: var(--primary-blue);
+}
+
+/* ========================================
+   CONTAINER & SECTIONS
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 300px);
+}
+
+.home-content {
+    text-align: center;
+}
+
+.home-content h2 {
+    font-size: 3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.home-content p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.home-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid var(--border-color);
+    background: var(--card-bg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-blue);
+}
+
+.button-icon {
+    font-size: 3rem;
+}
+
+.button-text {
+    text-align: center;
+}
+
+.button-text h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.button-text p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.gpa-button:hover {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(219, 234, 254, 0.2));
+}
+
+.cgpa-button:hover {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(255, 193, 7, 0.1));
+}
+
+/* ========================================
+   CARDS & SECTIONS
+   ======================================== */
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    animation: fadeInUp 0.6s ease-out;
+    border: 1px solid var(--border-color);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.card-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ========================================
+   SUBJECTS & SEMESTERS
+   ======================================== */
+
+.subjects-container,
+.semesters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subject-row,
+.semester-row {
+    display: grid;
+    gap: 1rem;
+    padding: 1.2rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-blue);
+    transition: var(--transition);
+    animation: popIn 0.3s ease-out;
+    border: 1px solid var(--border-color);
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.subject-row:hover,
+.semester-row:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(30, 64, 175, 0.2);
+}
+
+.subject-row {
+    grid-template-columns: 1fr 1fr auto;
+}
+
+.semester-row {
+    grid-template-columns: 1fr 1fr auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+    background: var(--card-bg);
+    color: var(--text-primary);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+}
+
+/* ========================================
+   GRADE SLIDER STYLES
+   ======================================== */
+
+.grade-slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.grade-slider-container label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.grade-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-secondary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.grade-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    min-width: 40px;
+}
+
+.grade-points {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.grade-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #10b981, #fbbf24, #ef4444);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.grade-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.4);
+    transition: var(--transition);
+    border: 3px solid var(--white);
+}
+
+.grade-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.6);
+}
+
+.grade-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(30, 64, 175, 0.4);
+    transition: var(--transition);
+    border: 3px solid var(--white);
+}
+
+.grade-slider::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.6);
+}
+
+.grade-slider::-moz-range-track {
+    background: transparent;
+    border: none;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 0 0.5rem;
+}
+
+.slider-min,
+.slider-max {
+    min-width: 20px;
+    text-align: center;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue), #1d3a8a);
+    color: var(--white);
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(30, 64, 175, 0.4);
+}
+
+.btn-delete {
+    background: var(--danger-red);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   STATS
+   ======================================== */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+/* ========================================
+   RESULTS
+   ======================================== */
+
+.result-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.result-box {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--primary-blue);
+    transition: var(--transition);
+}
+
+.result-box.status-good {
+    border-color: var(--success-green);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+}
+
+.result-box.status-okay {
+    border-color: var(--warning-yellow);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05));
+}
+
+.result-box.status-poor {
+    border-color: var(--danger-red);
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+}
+
+.result-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.result-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.result-value {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--primary-blue);
+    margin: 0.5rem 0;
+    font-family: 'Courier New', monospace;
+}
+
+.result-box.status-good .result-value {
+    color: var(--success-green);
+}
+
+.result-box.status-okay .result-value {
+    color: var(--warning-yellow);
+}
+
+.result-box.status-poor .result-value {
+    color: var(--danger-red);
+}
+
+.result-status {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.footer {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.empty-state p {
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-left: 0;
+    }
+
+    .credit-text {
+        width: 100%;
+        order: 3;
+    }
+
+    .logo-text {
+        font-size: 1.3rem;
+    }
+
+    .home-content h2 {
+        font-size: 2rem;
+    }
+
+    .button-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .card-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .subject-row,
+    .semester-row {
+        grid-template-columns: 1fr;
+    }
+
+    .result-value {
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 0.65rem;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .card-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .result-box {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+
+    .result-value {
+        font-size: 2rem;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .home-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+    }
+
+    .button-icon {
+        font-size: 2rem;
+    }
+
+    .button-text h3 {
+        font-size: 1.2rem;
+    }
+}
